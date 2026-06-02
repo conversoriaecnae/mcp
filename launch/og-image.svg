@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  OG / social card — 1200x630. Brand: bg #121212, primary #4CAF50, secondary #2196F3, surface #1E1E1E.
+  Rasterize to PNG for upload (Product Hunt, Twitter cards, LinkedIn, blog):
+    npx sharp-cli -i og-image.svg -o og-image.png   (or: rsvg-convert -w 1200 -h 630 og-image.svg > og-image.png)
+  Fonts: uses system sans + monospace. If you want a perfect match to the site, swap to its UI font before rasterizing.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#121212"/>
+  <!-- subtle top accent bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="#4CAF50"/>
+
+  <!-- eyebrow -->
+  <text x="80" y="120" font-family="monospace" font-size="22" letter-spacing="4" fill="#9aa0a6">
+    MODEL CONTEXT PROTOCOL · STREAMABLE HTTP
+  </text>
+
+  <!-- headline -->
+  <text x="80" y="210" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff">
+    El primer servidor MCP
+  </text>
+  <text x="80" y="290" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#4CAF50">
+    fiscal de España
+  </text>
+
+  <!-- subhead -->
+  <text x="80" y="350" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#c4c7cc">
+    IAE · CNAE 2025 · obligaciones AEAT · RETA — datos oficiales, para tu agente de IA
+  </text>
+
+  <!-- connect code block -->
+  <rect x="80" y="392" width="1040" height="150" rx="14" fill="#1E1E1E" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="108" y="438" font-family="monospace" font-size="24" fill="#c4c7cc">{ <tspan fill="#4CAF50">"type"</tspan>: <tspan fill="#2196F3">"streamable-http"</tspan>,</text>
+  <text x="108" y="478" font-family="monospace" font-size="24" fill="#c4c7cc">  <tspan fill="#4CAF50">"url"</tspan>: <tspan fill="#2196F3">"https://www.conversoriaecnae.es/api/mcp/mcp"</tspan> }</text>
+  <text x="108" y="518" font-family="monospace" font-size="20" fill="#7d8288">// 6 herramientas gratis · sin clave · sin registro</text>
+
+  <!-- footer -->
+  <text x="80" y="590" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#ffffff">conversoriaecnae.es/mcp</text>
+  <text x="1120" y="590" text-anchor="end" font-family="monospace" font-size="20" fill="#9aa0a6">10 tools · 6 free</text>
+</svg>
