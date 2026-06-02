@@ -1,0 +1,19 @@
+# GTM / launch strategy — keep PRIVATE.
+# Contains internal launch copy and reviewer credentials (throwaway cvr_ key).
+launch/
+
+# Secrets / credentials / env
+.env
+.env.*
+*.local
+*.key
+*.pem
+*.p12
+secrets/
+**/credentials*.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
