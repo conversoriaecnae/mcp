@@ -8,7 +8,7 @@
   # or: rsvg-convert -w 1200 -h 630 og-image.svg > og-image.png
   ```
 - Use on: Product Hunt gallery, Twitter/X card, LinkedIn, the flywheel blog post.
-- ⚠️ **Site OG gap found during build:** `app/mcp/page.tsx` defines `metadata` (title/description/canonical) but **no `openGraph` block**, so `/mcp` currently falls back to the root layout's default OG image. Add an `openGraph` (and `twitter`) entry to the `/mcp` metadata pointing at this image so shared `/mcp` links render the branded card. (Small in-app edit — not done in this pass because it depends on where you host the PNG.)
+- ✅ **Site OG gap (resolved):** `app/mcp/page.tsx` now has an `openGraph` + `twitter` block, so shared `/mcp` links render a branded card. It points at the site's existing dynamic OG generator — `/api/og?title=El%20primer%20servidor%20MCP%20fiscal%20de%20Espa%C3%B1a&type=mcp` (1200×630, dark gradient, green "MCP" badge) — so it needs no hosted PNG. The static PNG above is still useful for surfaces that can't call `/api/og` (PH gallery, X card, LinkedIn, blog). Edit lives on the `feat/mcp-gtm-artifacts` working tree in `conversor-iae-cnae-v3`.
 
 ## Demo video / GIF (30–45s) — the single highest-leverage asset
 **Shot list:**

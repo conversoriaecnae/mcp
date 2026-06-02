@@ -20,7 +20,8 @@ Legend: ✅ done in this build · ⬜ your action.
 
 ## Week 0 — Prep (your actions)
 - ⬜ **Create the GitHub repo** `github.com/conversoriaecnae/mcp` under the `conversoriaecnae` org, and push this `conversor-mcp-public/` folder to it. (Org must exist — the `io.github.conversoriaecnae/*` registry namespace verifies via GitHub OAuth on this org.)
-- ⬜ **Rasterize the OG image** (`launch/og-image.svg` → `og-image.png`) and host it; add an `openGraph`/`twitter` block to `app/mcp/page.tsx` pointing at it (see `og-and-demo.md` for the gap note).
+- ✅ **`/mcp` page OG/twitter** — added an `openGraph`/`twitter` block to `app/mcp/page.tsx` pointing at the site's existing dynamic generator (`/api/og?title=…&type=mcp`), so shared `/mcp` links render a branded card. No PNG hosting needed for the page itself. **(on the `feat/mcp-gtm-artifacts` working tree — stage/commit it.)**
+- ⬜ **Rasterize the OG image** (`launch/og-image.svg` → `og-image.png`) and host it — now only needed for the *external* surfaces that can't call `/api/og`: Product Hunt gallery, Twitter/X card upload, LinkedIn, the flywheel blog post.
 - ⬜ **Record the 30–45s demo** (shot list in `og-and-demo.md`).
 - ⬜ **Reviewer kit for the Claude Directory** (needed Week 1):
   - A throwaway **Profesional `cvr_` key** so reviewers can exercise the 4 premium tools.
