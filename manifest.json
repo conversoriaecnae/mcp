@@ -1,0 +1,40 @@
+{
+  "name": "conversor-iae-cnae",
+  "displayName": "Conversor IAE-CNAE",
+  "description": "The first fiscal MCP server for Spain. Live IAE, CNAE 2025, AEAT tax-form and RETA data for AI agents — official sources, no scrapers.",
+  "description_es": "El primer servidor MCP fiscal de España. Códigos IAE, CNAE 2025, obligaciones AEAT y cuota RETA para agentes de IA, con datos oficiales.",
+  "version": "1.0.0",
+  "homepage": "https://www.conversoriaecnae.es/mcp",
+  "repository": "https://github.com/conversoriaecnae/mcp",
+  "license": "MIT",
+  "registry": "https://registry.modelcontextprotocol.io/v0/servers/io.github.conversoriaecnae/conversor-iae-cnae",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://www.conversoriaecnae.es/api/mcp/mcp",
+    "sse": false
+  },
+  "authentication": {
+    "free": "none",
+    "premium": "Bearer cvr_ API key (plan Profesional+) or claude.ai OAuth connector",
+    "oauthResource": "https://www.conversoriaecnae.es/api/mcp"
+  },
+  "locale": "es-ES",
+  "categories": ["finance", "tax", "government-data", "spain"],
+  "tools": [
+    { "name": "buscar_codigo", "tier": "free", "description": "Semantic search across IAE / CNAE 2025 / CNAE 2009 by description." },
+    { "name": "detalle_iae", "tier": "free", "description": "Full record for an IAE code and its associated CNAE codes." },
+    { "name": "detalle_cnae", "tier": "free", "description": "Full record for a CNAE 2025 code and its associated IAE codes." },
+    { "name": "detalle_cnae_2009", "tier": "free", "description": "A legacy CNAE 2009 code and its CNAE 2025 correspondence." },
+    { "name": "calendario_fiscal", "tier": "free", "description": "AEAT forms and upcoming deadlines for a code." },
+    { "name": "describe_conversor", "tier": "free", "description": "Self-description: catalogs, RPCs and data freshness." },
+    { "name": "obligaciones_fiscales", "tier": "premium", "description": "Applicable AEAT forms with confidence, reason, frequency and deadline." },
+    { "name": "modulos_irpf_iva", "tier": "premium", "description": "Estimación objetiva (módulos) régimen for an IAE code." },
+    { "name": "consulta_masiva", "tier": "premium", "description": "Up to 50 IAE or CNAE records in a single call." },
+    { "name": "cuota_reta", "tier": "premium", "description": "2026 RETA bracket and minimum quota from net income." }
+  ],
+  "toolCount": 10,
+  "freeToolCount": 6,
+  "dataSources": ["AEAT", "INE", "BOE"],
+  "pricing": "https://www.conversoriaecnae.es/api-precios?source=mcp",
+  "contact": "brian@conversoriaecnae.es"
+}
