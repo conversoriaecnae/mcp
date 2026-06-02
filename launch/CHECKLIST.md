@@ -24,11 +24,11 @@ Legend: ✅ done in this build · ⬜ your action.
 - ✅ **`/mcp` page OG/twitter** — added an `openGraph`/`twitter` block to `app/mcp/page.tsx` pointing at the site's existing dynamic generator (`/api/og?title=…&type=mcp`), so shared `/mcp` links render a branded card. No PNG hosting needed for the page itself. **(merged to `main` via PR #58.)**
 - ⬜ **Rasterize the OG image** (`launch/og-image.svg` → `og-image.png`) and host it — now only needed for the *external* surfaces that can't call `/api/og`: Product Hunt gallery, Twitter/X card upload, LinkedIn, the flywheel blog post.
 - ⬜ **Record the 30–45s demo** (shot list in `og-and-demo.md`).
-- ⬜ **Reviewer kit for the Claude Directory** (needed Week 1):
-  - A throwaway **Profesional `cvr_` key** so reviewers can exercise the 4 premium tools.
-  - Privacy URL ready: https://www.conversoriaecnae.es/politica-privacidad
-  - Confirm nothing blocks Anthropic's IPs from the endpoint (Vercel = public no-op; just verify).
-  - The 3 demo prompts + connector docs link (`/mcp` + this repo).
+- ◐ **Reviewer kit for the Claude Directory** (needed Week 1) — kit assembled in [`claude-directory-kit.md`](./claude-directory-kit.md):
+  - ⬜ A throwaway **Profesional `cvr_` key** so reviewers can exercise the 4 premium tools. *(The only open item — keys live in the `api_keys` table: SHA-256 `key_hash`, `owner_email`, `plan='profesional'`, `is_active=true`.)*
+  - ✅ Privacy URL: https://www.conversoriaecnae.es/politica-privacidad
+  - ✅ Anthropic IPs not blocked — endpoint is public on Vercel; external `initialize` handshake succeeded.
+  - ✅ The 3 demo prompts + connector docs link (`/mcp` + this repo) — in the kit.
 
 ## Week 1 — Listings (your actions)
 - ✅ **Official MCP Registry — PUBLISHED & LIVE.** `io.github.conversoriaecnae/conversor-iae-cnae` **v1.0.1** is `isLatest`/`active`. Verify: `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.conversoriaecnae/conversor-iae-cnae"`.
@@ -65,7 +65,7 @@ Legend: ✅ done in this build · ⬜ your action.
 2. ✅ Registry live: `server.json` validates and the listing resolves — v1.0.1 published, `isLatest`/`active`.
 3. ◐ Repo public with README connect block + 10-tool table: ✅ done & connect block verified rendering via GitHub GFM API. Remaining: demo asset embed.
 4. ✅ Response channel: premium denial returns the Spanish CTA with `?source=mcp_tool`; free-tool JSON carries `_source`. (Tests green.)
-5. ⬜ Listings: registry published + Claude Directory form submitted (Week 1) + ≥4 Tier-2 directories live/pending before launch.
+5. ◐ Listings: ✅ registry published (v1.0.1) + ✅ Awesome-MCP PR [#7266](https://github.com/punkpeye/awesome-mcp-servers/pull/7266). Remaining: Claude Directory form submitted + ≥4 Tier-2 directories live/pending before launch.
 6. ⬜ Launch executed: PH + Show HN + r/mcp same day, all with the demo asset.
 7. ⬜ Attribution working: `?source=` params (incl. `mcp_tool`) land in analytics; you can see which channel drives free-key grabs and Profesional signups.
 8. ⬜ Conversion review: run the **buy-or-bounce** persona simulator against `/mcp` → `/api-precios?source=mcp` to pressure-test the free→paid funnel.
