@@ -12,15 +12,16 @@ Legend: ✅ done in this build · ⬜ your action.
   - `?source=mcp_tool` appended to the premium-denial CTA URL (`lib/mcp/auth.ts`).
   - `server.json` namespace → `io.github.conversoriaecnae/conversor-iae-cnae`.
   - `public/llms.txt` → added repo + registry URLs.
-  - Tests added/green (full suite passed). **→ review & merge this branch.**
+  - `/mcp` page `openGraph`/`twitter` block (dynamic `/api/og?…&type=mcp` card).
+  - Tests added/green (full suite passed). **✅ reviewed (no issues) & squash-merged to `main` as PR #58 (`afa1f99`).**
 - ✅ This public repo (`conversor-mcp-public/`): README, server.json, manifest.json, examples, LICENSE, this `/launch` copy bank + OG SVG.
 - ✅ `/api-precios` already has the "Más popular" highlight on Profesional (no change needed).
 
 ---
 
 ## Week 0 — Prep (your actions)
-- ⬜ **Create the GitHub repo** `github.com/conversoriaecnae/mcp` under the `conversoriaecnae` org, and push this `conversor-mcp-public/` folder to it. (Org must exist — the `io.github.conversoriaecnae/*` registry namespace verifies via GitHub OAuth on this org.)
-- ✅ **`/mcp` page OG/twitter** — added an `openGraph`/`twitter` block to `app/mcp/page.tsx` pointing at the site's existing dynamic generator (`/api/og?title=…&type=mcp`), so shared `/mcp` links render a branded card. No PNG hosting needed for the page itself. **(on the `feat/mcp-gtm-artifacts` working tree — stage/commit it.)**
+- ✅ **GitHub repo created & pushed** — [`github.com/conversoriaecnae/mcp`](https://github.com/conversoriaecnae/mcp) is live (PUBLIC); this `conversor-mcp-public/` folder is pushed to `main`. README + connect block verified rendering via GitHub's GFM API. Note: `conversoriaecnae` is a **User** account, not an org — fine for the registry (the `io.github.conversoriaecnae/*` namespace verifies via GitHub OAuth on whoever owns the repo).
+- ✅ **`/mcp` page OG/twitter** — added an `openGraph`/`twitter` block to `app/mcp/page.tsx` pointing at the site's existing dynamic generator (`/api/og?title=…&type=mcp`), so shared `/mcp` links render a branded card. No PNG hosting needed for the page itself. **(merged to `main` via PR #58.)**
 - ⬜ **Rasterize the OG image** (`launch/og-image.svg` → `og-image.png`) and host it — now only needed for the *external* surfaces that can't call `/api/og`: Product Hunt gallery, Twitter/X card upload, LinkedIn, the flywheel blog post.
 - ⬜ **Record the 30–45s demo** (shot list in `og-and-demo.md`).
 - ⬜ **Reviewer kit for the Claude Directory** (needed Week 1):
@@ -33,7 +34,7 @@ Legend: ✅ done in this build · ⬜ your action.
 - ⬜ **Official MCP Registry** (do FIRST — downstream directories ingest from it):
   ```bash
   mcp-publisher init        # interactive; uses ./server.json
-  mcp-publisher login github # OAuth on the conversoriaecnae org
+  mcp-publisher login github # OAuth on the conversoriaecnae account (owns the repo)
   mcp-publisher publish
   ```
   Then verify the listing resolves at
