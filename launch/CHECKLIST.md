@@ -31,15 +31,8 @@ Legend: ✅ done in this build · ⬜ your action.
   - The 3 demo prompts + connector docs link (`/mcp` + this repo).
 
 ## Week 1 — Listings (your actions)
-- ◐ **Official MCP Registry** (do FIRST — downstream directories ingest from it). **Prepped:** `mcp-publisher` CLI installed (`~/.local/bin/mcp-publisher.exe`); `server.json` validated green (remote-only → no `init`, no npm package needed). **Your one step — authenticate, then I publish:**
-  ```bash
-  # 1) YOU: device-flow login — authorize as conversoriaecnae (NOT brianMena)
-  mcp-publisher login github
-  # 2) publish from the repo root (uses ./server.json)
-  mcp-publisher publish
-  ```
-  Then verify it resolves:
-  `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.conversoriaecnae/conversor-iae-cnae"`.
+- ✅ **Official MCP Registry — PUBLISHED & LIVE.** `io.github.conversoriaecnae/conversor-iae-cnae` **v1.0.1** is `isLatest`/`active`. Verify: `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.conversoriaecnae/conversor-iae-cnae"`.
+  - ⚠️ **Encoding gotcha (for future version bumps):** the Windows `mcp-publisher` binary double-encodes non-ASCII when publishing (v1.0.0 got mojibake'd: `España`→`EspaÃ±a`, `↔`→`â†"`). Keep `server.json` prose **ASCII-only**; that's why the registry description is English/ASCII while the README/site keep full accents. v1.0.0 is superseded (`isLatest:false`).
 - ◐ **Claude Connectors Directory** — submission kit + form answers drafted in [`claude-directory-kit.md`](./claude-directory-kit.md). **Remaining (yours):** generate a throwaway Profesional `cvr_` key for reviewers, then submit the MCP Directory Server Review Form. Review takes ~2 weeks — submit this week. (`readOnlyHint` already present — #1 rejection cause pre-solved.)
 - ◐ **Tier-2 community directories** (aim ≥4 live/pending) — all submission copy pre-written in [`tier2-directories.md`](./tier2-directories.md):
   - ✅ **Awesome MCP Servers** — PR opened: [punkpeye/awesome-mcp-servers#7266](https://github.com/punkpeye/awesome-mcp-servers/pull/7266) (Finance & Fintech, agent fast-track).
@@ -69,7 +62,7 @@ Legend: ✅ done in this build · ⬜ your action.
 
 ## Verification / definition of done
 1. ◐ Endpoint green: ✅ `/mcp`, `/llms.txt`, `/agents.md`, `/.well-known/oauth-protected-resource`, `/api/og` all 200; ✅ MCP `initialize` handshake on `/api/mcp/mcp` returns protocol `2025-11-25` + `tools.listChanged`. Remaining: live Claude Desktop connect smoke-test.
-2. ◐ Registry live: ✅ `server.json` validates (`mcp-publisher validate`). Remaining: `login github` + `publish`, then confirm the listing resolves.
+2. ✅ Registry live: `server.json` validates and the listing resolves — v1.0.1 published, `isLatest`/`active`.
 3. ◐ Repo public with README connect block + 10-tool table: ✅ done & connect block verified rendering via GitHub GFM API. Remaining: demo asset embed.
 4. ✅ Response channel: premium denial returns the Spanish CTA with `?source=mcp_tool`; free-tool JSON carries `_source`. (Tests green.)
 5. ⬜ Listings: registry published + Claude Directory form submitted (Week 1) + ≥4 Tier-2 directories live/pending before launch.
