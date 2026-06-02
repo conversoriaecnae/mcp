@@ -31,23 +31,19 @@ Legend: ✅ done in this build · ⬜ your action.
   - The 3 demo prompts + connector docs link (`/mcp` + this repo).
 
 ## Week 1 — Listings (your actions)
-- ⬜ **Official MCP Registry** (do FIRST — downstream directories ingest from it):
+- ◐ **Official MCP Registry** (do FIRST — downstream directories ingest from it). **Prepped:** `mcp-publisher` CLI installed (`~/.local/bin/mcp-publisher.exe`); `server.json` validated green (remote-only → no `init`, no npm package needed). **Your one step — authenticate, then I publish:**
   ```bash
-  mcp-publisher init        # interactive; uses ./server.json
-  mcp-publisher login github # OAuth on the conversoriaecnae account (owns the repo)
+  # 1) YOU: device-flow login — authorize as conversoriaecnae (NOT brianMena)
+  mcp-publisher login github
+  # 2) publish from the repo root (uses ./server.json)
   mcp-publisher publish
   ```
-  Then verify the listing resolves at
-  `https://registry.modelcontextprotocol.io/v0/servers/io.github.conversoriaecnae/conversor-iae-cnae`.
-- ⬜ **Claude Connectors Directory** — submit via the MCP Directory Server Review Form with the reviewer kit. **Submit in Week 1**: review takes ~2 weeks, so submitting early targets approval before the Week-2 launch. (Your tools already carry the `readOnlyHint` annotation the Directory requires — #1 rejection cause is pre-solved.)
-- ⬜ **Tier-2 community directories** (aim ≥4 live/pending before launch day):
-  - PulseMCP (pulsemcp.com — "Submit" in nav)
-  - Smithery (smithery.ai)
-  - Glama (glama.ai/mcp/servers — wants name/desc/repo/transport/tool-count)
-  - mcp.so (submit form)
-  - Awesome MCP Servers (github.com/punkpeye/awesome-mcp-servers — PR adding your entry)
-  - Cursor Directory (cursor.directory/mcp — deeplink already exists, near-zero effort)
-  - Reuse the Part-1 positioning + 60-char short desc + the tool table. Always include "6 free, no key" and link `/mcp?source={directory}`.
+  Then verify it resolves:
+  `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.conversoriaecnae/conversor-iae-cnae"`.
+- ◐ **Claude Connectors Directory** — submission kit + form answers drafted in [`claude-directory-kit.md`](./claude-directory-kit.md). **Remaining (yours):** generate a throwaway Profesional `cvr_` key for reviewers, then submit the MCP Directory Server Review Form. Review takes ~2 weeks — submit this week. (`readOnlyHint` already present — #1 rejection cause pre-solved.)
+- ◐ **Tier-2 community directories** (aim ≥4 live/pending) — all submission copy pre-written in [`tier2-directories.md`](./tier2-directories.md):
+  - ✅ **Awesome MCP Servers** — PR opened: [punkpeye/awesome-mcp-servers#7266](https://github.com/punkpeye/awesome-mcp-servers/pull/7266) (Finance & Fintech, agent fast-track).
+  - ⬜ PulseMCP · Smithery · Glama · mcp.so · Cursor Directory — paste from `tier2-directories.md` (each link carries `?source=<directory>`).
 - ⬜ **Skip** (low fit, not a gap): Docker MCP Catalog, Cline marketplace, mcp-get, mcpmarket (they favor containerized/stdio npm packages).
 
 ## Week 2 — Launch day (one day, Tue–Thu, early US morning)
@@ -72,9 +68,9 @@ Legend: ✅ done in this build · ⬜ your action.
 ---
 
 ## Verification / definition of done
-1. ⬜ Endpoint green: `curl` the streamable-HTTP endpoint + load `/mcp`, `/llms.txt`, `/agents.md`, `/.well-known/oauth-protected-resource` → all 200. Smoke-test Claude Desktop connect with the published JSON.
-2. ⬜ Registry live: `server.json` validates and the listing resolves; GitHub-namespace publish succeeds.
-3. ⬜ Repo public with README rendering connect block, demo, 10-tool table.
+1. ◐ Endpoint green: ✅ `/mcp`, `/llms.txt`, `/agents.md`, `/.well-known/oauth-protected-resource`, `/api/og` all 200; ✅ MCP `initialize` handshake on `/api/mcp/mcp` returns protocol `2025-11-25` + `tools.listChanged`. Remaining: live Claude Desktop connect smoke-test.
+2. ◐ Registry live: ✅ `server.json` validates (`mcp-publisher validate`). Remaining: `login github` + `publish`, then confirm the listing resolves.
+3. ◐ Repo public with README connect block + 10-tool table: ✅ done & connect block verified rendering via GitHub GFM API. Remaining: demo asset embed.
 4. ✅ Response channel: premium denial returns the Spanish CTA with `?source=mcp_tool`; free-tool JSON carries `_source`. (Tests green.)
 5. ⬜ Listings: registry published + Claude Directory form submitted (Week 1) + ≥4 Tier-2 directories live/pending before launch.
 6. ⬜ Launch executed: PH + Show HN + r/mcp same day, all with the demo asset.
